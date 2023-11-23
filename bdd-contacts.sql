@@ -1,6 +1,15 @@
 -- Création bdd : exo_contacts
-CREATE DATABASE IF NOT EXISTS exo_contacts;
+DROP DATABASE IF EXISTS exo_contacts;
+CREATE DATABASE exo_contacts;
 USE exo_contacts;
+
+-- Creation de la table "pays"
+CREATE TABLE pays (
+    iso_3 VARCHAR(3) PRIMARY KEY,
+    nom VARCHAR(70),
+    iso_2 VARCHAR(2),
+    nationalite VARCHAR(50)
+);
 
 -- creation table contact"
 CREATE TABLE contacts (
@@ -21,16 +30,8 @@ CREATE TABLE telephone (
     id INT PRIMARY KEY,
     id_contact INT,
     numero VARCHAR(50),
-    type BYTE,
+    type TINYINT,
     FOREIGN KEY (id_contact) REFERENCES contacts(id)
-);
-
--- Creation de la table "pays"
-CREATE TABLE pays (
-    iso_3 VARCHAR(3) PRIMARY KEY,
-    nom VARCHAR(70),
-    iso_2 VARCHAR(2),
-    nationalite VARCHAR(50)
 );
 
 -- Insertion de données dans la table "pays"
