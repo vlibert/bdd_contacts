@@ -15,3 +15,12 @@ CREATE TABLE contacts (
     pays_iso_3 VARCHAR(3),
     FOREIGN KEY (pays_iso_3) REFERENCES pays(iso_3)
 );
+
+-- Création de la table "telephone"
+CREATE TABLE telephone (
+    id INT PRIMARY KEY,
+    id_contact INT,
+    numero VARCHAR(50),
+    type BYTE,
+    FOREIGN KEY (id_contact) REFERENCES contacts(id)
+);
